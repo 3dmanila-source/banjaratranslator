@@ -330,15 +330,8 @@
                 <div class="english-text" id="englishText">Loading sentence...</div>
 
                 <div class="input-group">
-                    <label for="phoneticInput">Banjara (Phonetic)</label>
-                    <input type="text" id="phoneticInput" placeholder="Enter phonetic transliteration..."
-                        autocomplete="off">
-                </div>
-
-                <div class="input-group">
-                    <label for="simplifiedInput">Banjara (Simplified)</label>
-                    <input type="text" id="simplifiedInput" placeholder="Enter easy pronunciation..."
-                        autocomplete="off">
+                    <label for="banjaraInput">Banjara Translation</label>
+                    <input type="text" id="banjaraInput" placeholder="Enter Banjara translation..." autocomplete="off">
                 </div>
 
                 <div class="button-group">
@@ -410,26 +403,23 @@
             document.getElementById('categoryTag').textContent = sentence.category.replace('_', ' ');
             document.getElementById('englishText').textContent = sentence.text;
 
-            // Clear inputs or pre-fill if already translated
+            // Clear input or pre-fill if already translated
             if (translations[sentence.id]) {
-                document.getElementById('phoneticInput').value = translations[sentence.id].phonetic;
-                document.getElementById('simplifiedInput').value = translations[sentence.id].simplified;
+                document.getElementById('banjaraInput').value = translations[sentence.id].banjara;
             } else {
-                document.getElementById('phoneticInput').value = '';
-                document.getElementById('simplifiedInput').value = '';
+                document.getElementById('banjaraInput').value = '';
             }
 
-            // Focus on first input
-            document.getElementById('phoneticInput').focus();
+            // Focus on input
+            document.getElementById('banjaraInput').focus();
         }
 
         // Submit translation
         function submitTranslation() {
-            const phonetic = document.getElementById('phoneticInput').value.trim();
-            const simplified = document.getElementById('simplifiedInput').value.trim();
+            const banjara = document.getElementById('banjaraInput').value.trim();
 
-            if (!phonetic || !simplified) {
-                alert('Please fill in both fields');
+            if (!banjara) {
+                alert('Please enter the Banjara translation');
                 return;
             }
 
@@ -437,8 +427,7 @@
             translations[sentence.id] = {
                 english: sentence.text,
                 category: sentence.category,
-                phonetic: phonetic,
-                simplified: simplified,
+                banjara: banjara,
                 timestamp: new Date().toISOString()
             };
 
@@ -497,10 +486,10 @@
             }
 
             // Create CSV content
-            let csv = 'ID,Category,English,Banjara_Phonetic,Banjara_Simplified,Timestamp\n';
+            let csv = 'ID,Category,English,Banjara,Timestamp\n';
 
             Object.entries(translations).forEach(([id, data]) => {
-                csv += `${id},"${data.category}","${data.english}","${data.phonetic}","${data.simplified}","${data.timestamp}"\n`;
+                csv += `${id},"${data.category}","${data.english}","${data.banjara}","${data.timestamp}"\n`;
             });
 
             // Download
