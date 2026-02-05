@@ -13,7 +13,7 @@ const charCount = document.getElementById('charCount');
 englishInput.addEventListener('input', () => {
     const count = englishInput.value.length;
     charCount.textContent = count;
-    
+
     // Update button state
     if (count > 0) {
         translateBtn.disabled = false;
@@ -23,15 +23,57 @@ englishInput.addEventListener('input', () => {
 });
 
 // ===================================
-// Translation Function (Placeholder)
+// Load Dictionary
+// ===================================
+let dictionary = {};
+
+// Load dictionary on page load
+async function loadDictionary() {
+    try {
+        const response = await fetch('dictionary.json');
+        dictionary = await response.json();
+        console.log(`📚 Loaded ${Object.keys(dictionary).length} words`);
+    } catch (error) {
+        console.error('Error loading dictionary:', error);
+        dictionary = {}; // Fallback to empty
+    }
+}
+
+// Call on page load
+loadDictionary();
+
+// ===================================
+// Translation Function
 // ===================================
 async function translateText(text) {
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 800));
-    
-    // Placeholder translation logic
-    // TODO: Replace with actual translation API/logic
-    return `[Banjara Translation]\n${text}\n\n(Translation engine coming soon...)`;
+    // Simulate slight delay for UX
+    await new Promise(resolve => setTimeout(resolve, 300));
+
+    // Tokenize input (split by spaces and punctuation)
+    const words = text.toLowerCase()
+        .replace(/[.,!?;:"']/g, ' ')  // Replace punctuation with spaces
+        .split(/\s+/)                   // Split by whitespace
+        .filter(word => word.length > 0);
+
+    // Translate word by word
+    const translatedWords = words.map(word => {
+        // Look up in dictionary
+        if (dictionary[word]) {
+            return dictionary[word];
+        } else {
+            // Return original word if not found
+            return `[${word}]`;  // Mark untranslated words with brackets
+        }
+    });
+
+    const translatedText = translatedWords.join(' ');
+
+    // Show statistics
+    const foundWords = words.filter(w => dictionary[w]).length;
+    const totalWords = words.length;
+    const coverage = totalWords > 0 ? Math.round((foundWords / totalWords) * 100) : 0;
+
+    return `${translatedText}\n\n📊 Translated: ${foundWords}/${totalWords} words (${coverage}% coverage)`;
 }
 
 // ===================================
@@ -39,11 +81,11 @@ async function translateText(text) {
 // ===================================
 translateBtn.addEventListener('click', async () => {
     const inputText = englishInput.value.trim();
-    
+
     if (!inputText) {
         return;
     }
-    
+
     // Update UI to loading state
     translateBtn.disabled = true;
     translateBtn.innerHTML = `
@@ -54,20 +96,20 @@ translateBtn.addEventListener('click', async () => {
             </circle>
         </svg>
     `;
-    
+
     try {
         // Perform translation
         const translatedText = await translateText(inputText);
-        
+
         // Update output
         banjaraOutput.innerHTML = translatedText;
-        
+
         // Enable copy button
         copyBtn.disabled = false;
-        
+
         // Add success animation
         banjaraOutput.style.animation = 'fadeInUp 0.5s ease-out';
-        
+
     } catch (error) {
         console.error('Translation error:', error);
         banjaraOutput.innerHTML = `<span style="color: #ff3b30;">⚠️ Translation failed. Please try again.</span>`;
@@ -88,10 +130,10 @@ translateBtn.addEventListener('click', async () => {
 // ===================================
 copyBtn.addEventListener('click', async () => {
     const outputText = banjaraOutput.textContent;
-    
+
     try {
         await navigator.clipboard.writeText(outputText);
-        
+
         // Show success feedback
         const originalHTML = copyBtn.innerHTML;
         copyBtn.innerHTML = `
@@ -101,13 +143,13 @@ copyBtn.addEventListener('click', async () => {
             <span>Copied!</span>
         `;
         copyBtn.style.color = '#34c759';
-        
+
         // Reset after 2 seconds
         setTimeout(() => {
             copyBtn.innerHTML = originalHTML;
             copyBtn.style.color = '';
         }, 2000);
-        
+
     } catch (error) {
         console.error('Copy failed:', error);
         alert('Failed to copy text');
@@ -133,10 +175,10 @@ englishInput.addEventListener('keydown', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     // Disable translate button initially
     translateBtn.disabled = true;
-    
+
     // Focus input
     englishInput.focus();
-    
+
     console.log('🌐 Banjara Translator initialized');
     console.log('💡 Tip: Press Ctrl/Cmd + Enter to translate');
 });
