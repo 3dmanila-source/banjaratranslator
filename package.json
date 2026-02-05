@@ -1,0 +1,17 @@
+{
+    "name": "banjara-translator",
+    "version": "1.0.0",
+    "description": "English to Banjara Language Translator",
+    "main": "index.html",
+    "scripts": {
+        "dev": "npx -y serve -l 3000",
+        "start": "npx -y serve -l 3000"
+    },
+    "keywords": [
+        "translator",
+        "banjara",
+        "language"
+    ],
+    "author": "",
+    "license": "MIT"
+}
