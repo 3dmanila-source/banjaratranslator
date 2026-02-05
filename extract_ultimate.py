@@ -112,14 +112,14 @@ def main():
     print("Extracting ALL entries (ultimate parser)...")
     dictionary = extract_ultimate(text)
     
-    print(f"\n✓ Extracted {len(dictionary)} unique entries")
+    print(f"\nExtracted {len(dictionary)} unique entries")
     
-    # Save
+    # Save ultimate version
     output_path = r"i:\Banjara AI\dictionary_ultimate.json"
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(dictionary, f, ensure_ascii=True, indent=2, sort_keys=True)
     
-    print(f"✓ Saved to: {output_path}")
+    print(f"Saved to: {output_path}")
     
     # Statistics
     print("\n=== RESULTS ===")
@@ -129,17 +129,19 @@ def main():
     print(f"  v3.0 (ultimate): {len(dictionary)}")
     print(f"  NEW entries: +{len(dictionary) - 1968}")
     
-    # If we use this as main dictionary
+    # Also update main dictionary
     main_dict_path = r"i:\Banjara AI\dictionary.json"
     with open(main_dict_path, 'w', encoding='utf-8') as f:
         json.dump(dictionary, f, ensure_ascii=True, indent=2, sort_keys=True)
     
-    print(f"\n✓ Updated main dictionary.json with {len(dictionary)} entries")
+    print(f"\nUpdated main dictionary.json with {len(dictionary)} entries")
     
     # Sample
     print("\n=== Sample (first 10) ===")
     for i, (eng, ban) in enumerate(list(dictionary.items())[:10]):
         print(f"  {eng} -> {ban}")
+    
+    print("\nDone!")
 
 if __name__ == "__main__":
     main()
