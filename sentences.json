@@ -1,0 +1,252 @@
+[
+    {
+        "id": 1,
+        "category": "greeting",
+        "text": "Hello"
+    },
+    {
+        "id": 2,
+        "category": "greeting",
+        "text": "Good morning"
+    },
+    {
+        "id": 3,
+        "category": "greeting",
+        "text": "Good evening"
+    },
+    {
+        "id": 4,
+        "category": "greeting",
+        "text": "How are you?"
+    },
+    {
+        "id": 5,
+        "category": "greeting",
+        "text": "I am fine"
+    },
+    {
+        "id": 6,
+        "category": "greeting",
+        "text": "Thank you"
+    },
+    {
+        "id": 7,
+        "category": "greeting",
+        "text": "You are welcome"
+    },
+    {
+        "id": 8,
+        "category": "greeting",
+        "text": "Nice to meet you"
+    },
+    {
+        "id": 9,
+        "category": "greeting",
+        "text": "Goodbye"
+    },
+    {
+        "id": 10,
+        "category": "greeting",
+        "text": "See you later"
+    },
+    {
+        "id": 11,
+        "category": "daily_life",
+        "text": "I am eating"
+    },
+    {
+        "id": 12,
+        "category": "daily_life",
+        "text": "I am drinking water"
+    },
+    {
+        "id": 13,
+        "category": "daily_life",
+        "text": "I am going home"
+    },
+    {
+        "id": 14,
+        "category": "daily_life",
+        "text": "I am sleeping"
+    },
+    {
+        "id": 15,
+        "category": "daily_life",
+        "text": "I am working"
+    },
+    {
+        "id": 16,
+        "category": "daily_life",
+        "text": "I want food"
+    },
+    {
+        "id": 17,
+        "category": "daily_life",
+        "text": "I want water"
+    },
+    {
+        "id": 18,
+        "category": "daily_life",
+        "text": "I am hungry"
+    },
+    {
+        "id": 19,
+        "category": "daily_life",
+        "text": "I am thirsty"
+    },
+    {
+        "id": 20,
+        "category": "daily_life",
+        "text": "I am tired"
+    },
+    {
+        "id": 21,
+        "category": "daily_life",
+        "text": "I am happy"
+    },
+    {
+        "id": 22,
+        "category": "daily_life",
+        "text": "I am sad"
+    },
+    {
+        "id": 23,
+        "category": "daily_life",
+        "text": "It is hot"
+    },
+    {
+        "id": 24,
+        "category": "daily_life",
+        "text": "It is cold"
+    },
+    {
+        "id": 25,
+        "category": "daily_life",
+        "text": "It is raining"
+    },
+    {
+        "id": 26,
+        "category": "questions",
+        "text": "What is this?"
+    },
+    {
+        "id": 27,
+        "category": "questions",
+        "text": "Where is the bathroom?"
+    },
+    {
+        "id": 28,
+        "category": "questions",
+        "text": "Where is the market?"
+    },
+    {
+        "id": 29,
+        "category": "questions",
+        "text": "How much does this cost?"
+    },
+    {
+        "id": 30,
+        "category": "questions",
+        "text": "What time is it?"
+    },
+    {
+        "id": 31,
+        "category": "questions",
+        "text": "When are you coming?"
+    },
+    {
+        "id": 32,
+        "category": "questions",
+        "text": "Why are you late?"
+    },
+    {
+        "id": 33,
+        "category": "questions",
+        "text": "Who is that person?"
+    },
+    {
+        "id": 34,
+        "category": "questions",
+        "text": "Do you understand?"
+    },
+    {
+        "id": 35,
+        "category": "questions",
+        "text": "Can you help me?"
+    },
+    {
+        "id": 36,
+        "category": "commands",
+        "text": "Come here"
+    },
+    {
+        "id": 37,
+        "category": "commands",
+        "text": "Go there"
+    },
+    {
+        "id": 38,
+        "category": "commands",
+        "text": "Sit down"
+    },
+    {
+        "id": 39,
+        "category": "commands",
+        "text": "Stand up"
+    },
+    {
+        "id": 40,
+        "category": "commands",
+        "text": "Wait here"
+    },
+    {
+        "id": 41,
+        "category": "commands",
+        "text": "Listen carefully"
+    },
+    {
+        "id": 42,
+        "category": "commands",
+        "text": "Stop that"
+    },
+    {
+        "id": 43,
+        "category": "commands",
+        "text": "Give me that"
+    },
+    {
+        "id": 44,
+        "category": "commands",
+        "text": "Bring water"
+    },
+    {
+        "id": 45,
+        "category": "commands",
+        "text": "Help me"
+    },
+    {
+        "id": 46,
+        "category": "family",
+        "text": "This is my father"
+    },
+    {
+        "id": 47,
+        "category": "family",
+        "text": "This is my mother"
+    },
+    {
+        "id": 48,
+        "category": "family",
+        "text": "This is my brother"
+    },
+    {
+        "id": 49,
+        "category": "family",
+        "text": "This is my sister"
+    },
+    {
+        "id": 50,
+        "category": "family",
+        "text": "I have two children"
+    }
+]
